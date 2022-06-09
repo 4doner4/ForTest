@@ -1,0 +1,17 @@
+﻿@page
+@model WebApplication2.Pages.CreateModel
+@{
+     ViewData["Title"] = "Добавление нового пользователя";
+}
+ 
+<form method="post">
+        <table>
+        <tr><td><p>Введите свое имя </p></td>
+            <td><input type="text" name="Task.Title" /> </td></tr>
+        <tr><td><p>Введите адрес :</p></td>
+            <td><input asp-page-handler="delete" type="text" name="Task.Description" /> </td></tr>
+        <tr><td><input type="submit" value="Отправить" /> </td>
+                <td></td></tr>
+        </table>
+
+</form>

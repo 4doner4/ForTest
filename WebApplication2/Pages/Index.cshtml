@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-white">
+                <div class="card-body">
+                    <ul class="nav nav-pills todo-nav">
+                        <li class=" nav-item "><a href="Create" class="nav-link">Create</a></li>
+                        <li role="presentation" class="nav-item all-task active"><a href="#" class="nav-link">All</a></li>
+                        <li role="presentation" class="nav-item active-task"><a href="#" class="nav-link">Active</a></li>
+                        <li role="presentation" class="nav-item completed-task"><a href="#" class="nav-link">Completed</a></li>
+                    </ul>
+                    <div class="todo-list">
+                        <form method="post">
+                        @foreach (var person in Model.Tasks)
+                        {
+                            <div class="todo-item">
+                            <div class="checker"><span class=""><input type="checkbox"></span></div>
+                            <span>@person.Title</span>
+                            <span>@person.Description</span>
+                            <button type="submit" asp-page-handler="edit" asp-route-id="@person.Id"> едит </button>  
+                            <button type="submit" asp-page-handler="delete" asp-route-id="@person.Id"> Удалить </button>  
+                            </div>
+                        }
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
